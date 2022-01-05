@@ -119,6 +119,10 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
             .addTarget(self,
                        action: #selector(squareCropButtonTapped),
                        for: .touchUpInside)
+        v.assetViewContainer.rotateButton
+            .addTarget(self,
+                       action: #selector(rotateButtonTapped),
+                       for: .touchUpInside)
         v.assetViewContainer.multipleSelectionButton
             .addTarget(self,
                        action: #selector(multipleSelectionButtonTapped),
@@ -151,6 +155,15 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
     func squareCropButtonTapped() {
         doAfterPermissionCheck { [weak self] in
             self?.v.assetViewContainer.squareCropButtonTapped()
+        }
+    }
+    
+    // MARK: - Rotate control
+    
+    @objc
+    func rotateButtonTapped() {
+        doAfterPermissionCheck { [weak self] in
+            self?.v.assetViewContainer.rotateButtonTapped()
         }
     }
     

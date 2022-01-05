@@ -82,7 +82,7 @@ class YPAssetViewContainer: UIView {
             rotateButton.setImage(YPConfig.icons.rotateIcon, for: .normal)
             sv(rotateButton)
             rotateButton.size(42)
-            squareCropButton-15-|
+            rotateButton-15-|
             rotateButton.Bottom == zoomableView!.Bottom - 15
         }
         
@@ -91,7 +91,7 @@ class YPAssetViewContainer: UIView {
         multipleSelectionButton.size(42)
         multipleSelectionButton-15-|
         multipleSelectionButton.setImage(YPConfig.icons.multipleSelectionOffIcon, for: .normal)
-        multipleSelectionButton.Bottom == zoomableView!.Bottom - 15
+        multipleSelectionButton.Bottom == zoomableView!.Bottom - (rotate ? 56 : 15)
         
     }
     
@@ -118,6 +118,13 @@ class YPAssetViewContainer: UIView {
         
         let shouldFit = YPConfig.library.onlySquare ? true : shouldCropToSquare
         zoomableView?.fitImage(shouldFit)
+    }
+    
+    // MARK: - Rotate button
+    
+    @objc public func rotateButtonTapped() {
+        guard zoomableView?.assetImageView != nil else { return }
+        zoomableView?.assetImageView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2))
     }
     
     // MARK: - Multiple selection
