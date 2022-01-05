@@ -7,6 +7,7 @@
 //
 
 import Stevia
+import UIKit
 
 class YPFilterCollectionViewCell: UICollectionViewCell {
     
@@ -36,7 +37,7 @@ class YPFilterCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        sv(
+        subviews(
             name,
             imageView
         )
