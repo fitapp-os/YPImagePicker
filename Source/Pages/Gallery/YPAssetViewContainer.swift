@@ -27,6 +27,8 @@ class YPAssetViewContainer: UIView {
     private let spinner = UIActivityIndicatorView(style: .white)
     private var shouldCropToSquare = YPConfig.library.isSquareByDefault
     private var isMultipleSelection = false
+    
+    private var rotationAngle: CGFloat = 0
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -124,7 +126,8 @@ class YPAssetViewContainer: UIView {
     
     @objc public func rotateButtonTapped() {
         guard zoomableView?.assetImageView != nil else { return }
-        zoomableView?.assetImageView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2))
+        rotationAngle += .pi / 2
+        zoomableView?.transform = CGAffineTransform(rotationAngle: rotationAngle)
     }
     
     // MARK: - Multiple selection
