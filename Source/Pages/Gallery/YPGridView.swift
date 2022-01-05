@@ -19,7 +19,7 @@ class YPGridView: UIView {
     convenience init() {
         self.init(frame: .zero)
         isUserInteractionEnabled = false
-        subviews(
+        sv(
             line1,
             line2,
             line3,

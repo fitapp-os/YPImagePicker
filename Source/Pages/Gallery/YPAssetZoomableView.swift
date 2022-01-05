@@ -11,7 +11,7 @@ import UIKit
 import Photos
 
 protocol YPAssetZoomableViewDelegate: class {
-    func ypAssetZoomableViewDidLayoutSubviews(_ zoomableView: YPAssetZoomableView)
+    func ypAssetZoomableViewDidLayoutsv(_ zoomableView: YPAssetZoomableView)
     func ypAssetZoomableViewScrollViewDidZoom()
     func ypAssetZoomableViewScrollViewDidEndZooming()
 }
@@ -228,7 +228,7 @@ final class YPAssetZoomableView: UIScrollView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        myDelegate?.ypAssetZoomableViewDidLayoutSubviews(self)
+        myDelegate?.ypAssetZoomableViewDidLayoutsv(self)
     }
 }
 
