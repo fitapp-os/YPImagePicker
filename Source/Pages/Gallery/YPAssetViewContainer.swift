@@ -23,12 +23,11 @@ class YPAssetViewContainer: UIView {
     public var onlySquare = YPConfig.library.onlySquare
     public var rotationAngle = YPConfig.library.rotationAngle
     public var isShown = true
+    public private(set) var currentRotationAngle: CGFloat = 0
     
     private let spinner = UIActivityIndicatorView(style: .white)
     private var shouldCropToSquare = YPConfig.library.isSquareByDefault
     private var isMultipleSelection = false
-    
-    private var currentRotationAngle: CGFloat = 0
 
     override func awakeFromNib() {
         super.awakeFromNib()
