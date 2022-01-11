@@ -166,6 +166,12 @@ public struct YPImagePickerConfiguration {
 public struct YPConfigLibrary {
     
     public var options: PHFetchOptions? = nil
+    
+    /// Custom crop/rotate/multiple selection button size. Defaults to 42.
+    public var buttonSize: CGFloat = 42
+    
+    /// Custom background color for crop/rotate/multiple selection buttons. Defaults to nil.
+    public var buttonBackgroundColor: UIColor? = nil
 
     /// Set this to true if you want to force the library output to be a squared image. Defaults to false.
     public var onlySquare = false
@@ -173,8 +179,8 @@ public struct YPConfigLibrary {
     /// Sets the cropping style to square or not. Ignored if `onlySquare` is true. Defaults to true.
     public var isSquareByDefault = true
     
-    /// Set this to true if you want to rotate the output. Defaults to false.
-    public var rotate = false
+    /// Rotation angle for image. If this angle is not nil, the rotation button is visible. Defaults to nil.
+    public var rotationAngle: CGFloat? = nil
     
     /// Minimum width, to prevent selectiong too high images. Have sense if onlySquare is true and the image is portrait.
     public var minWidthForItem: CGFloat?

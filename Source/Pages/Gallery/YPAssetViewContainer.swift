@@ -21,14 +21,14 @@ class YPAssetViewContainer: UIView {
     public let rotateButton = UIButton()
     public let multipleSelectionButton = UIButton()
     public var onlySquare = YPConfig.library.onlySquare
-    public var rotate = YPConfig.library.rotate
+    public var rotationAngle = YPConfig.library.rotationAngle
     public var isShown = true
     
     private let spinner = UIActivityIndicatorView(style: .white)
     private var shouldCropToSquare = YPConfig.library.isSquareByDefault
     private var isMultipleSelection = false
     
-    private var rotationAngle: CGFloat = 0
+    private var currentRotationAngle: CGFloat = 0
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -73,27 +73,37 @@ class YPAssetViewContainer: UIView {
         if !onlySquare {
             // Crop Button
             squareCropButton.setImage(YPConfig.icons.cropIcon, for: .normal)
+            if let backgroundColor = YPConfig.library.buttonBackgroundColor {
+                squareCropButton.layer.masksToBounds = true
+                squareCropButton.layer.cornerRadius = YPConfig.library.buttonSize / 2
+                squareCropButton.backgroundColor = backgroundColor
+            }
             sv(squareCropButton)
-            squareCropButton.size(42)
+            squareCropButton.size(YPConfig.library.buttonSize)
             |-15-squareCropButton
             squareCropButton.Bottom == zoomableView!.Bottom - 15
         }
         
-        if rotate {
+        if let rotationAngle = YPConfig.library.rotationAngle {
             // Rotate Button
             rotateButton.setImage(YPConfig.icons.rotateIcon, for: .normal)
+            if let backgroundColor = YPConfig.library.buttonBackgroundColor {
+                rotateButton.layer.masksToBounds = true
+                rotateButton.layer.cornerRadius = YPConfig.library.buttonSize / 2
+                rotateButton.backgroundColor = backgroundColor
+            }
             sv(rotateButton)
-            rotateButton.size(42)
+            rotateButton.size(YPConfig.library.buttonSize)
             rotateButton-15-|
             rotateButton.Bottom == zoomableView!.Bottom - 15
         }
         
         // Multiple selection button
         sv(multipleSelectionButton)
-        multipleSelectionButton.size(42)
+        multipleSelectionButton.size(YPConfig.library.buttonSize)
         multipleSelectionButton-15-|
         multipleSelectionButton.setImage(YPConfig.icons.multipleSelectionOffIcon, for: .normal)
-        multipleSelectionButton.Bottom == zoomableView!.Bottom - (rotate ? 56 : 15)
+        multipleSelectionButton.Bottom == zoomableView!.Bottom - (15 + (rotationAngle != nil ? YPConfig.library.buttonSize + 10 : 0))
         
     }
     
@@ -125,9 +135,9 @@ class YPAssetViewContainer: UIView {
     // MARK: - Rotate button
     
     @objc public func rotateButtonTapped() {
-        guard zoomableView?.assetImageView != nil else { return }
-        rotationAngle += .pi / 2
-        zoomableView?.transform = CGAffineTransform(rotationAngle: rotationAngle)
+        guard zoomableView?.assetImageView != nil, let rotationAngle = YPConfig.library.rotationAngle else { return }
+        currentRotationAngle += rotationAngle * .pi / 180
+        zoomableView?.transform = CGAffineTransform(rotationAngle: currentRotationAngle)
     }
     
     // MARK: - Multiple selection
