@@ -51,9 +51,11 @@ final class YPMenuItem: UIView {
 
     func select() {
         textLabel.textColor = YPImagePickerConfiguration.shared.colors.bottomMenuItemSelectedTextColor
+        textLabel.font = UIFont.systemFont(ofSize: textLabel.font.pointSize, weight: .bold)
     }
     
     func deselect() {
         textLabel.textColor = YPImagePickerConfiguration.shared.colors.bottomMenuItemUnselectedTextColor
+        textLabel.font = UIFont.systemFont(ofSize: textLabel.font.pointSize, weight: .semibold)
     }
 }

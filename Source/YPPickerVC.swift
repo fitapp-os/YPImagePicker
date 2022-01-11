@@ -279,20 +279,25 @@ open class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
     }
     
     func updateUI() {
+        let rightBarButton = UIBarButtonItem(title: YPConfig.wordings.next,
+                                              style: .done,
+                                              target: self,
+                                              action: #selector(done))
         // Update Nav Bar state.
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: YPConfig.wordings.cancel,
                                                            style: .plain,
                                                            target: self,
                                                            action: #selector(close))
         navigationItem.leftBarButtonItem?.tintColor = YPConfig.colors.tintColor
+        if let navBarTitleFont = UINavigationBar.appearance().titleTextAttributes?[.font] as? UIFont {
+            navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.font: navBarTitleFont], for: .normal)
+            rightBarButton.setTitleTextAttributes([NSAttributedString.Key.font: navBarTitleFont], for: .normal)
+        }
         
         switch mode {
         case .library:
             setTitleViewWithTitle(aTitle: libraryVC?.title ?? "")
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: YPConfig.wordings.next,
-                                                                style: .done,
-                                                                target: self,
-                                                                action: #selector(done))
+            navigationItem.rightBarButtonItem = rightBarButton
             navigationItem.rightBarButtonItem?.tintColor = YPConfig.colors.tintColor
             
             // Disable Next Button until minNumberOfItems is reached.
@@ -307,9 +312,13 @@ open class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
             title = videoVC?.title
             navigationItem.rightBarButtonItem = nil
         case .custom:
+            let customRightButton = customVC?.navigationItem.rightBarButtonItem
             navigationItem.titleView = nil
             title = customVC?.title
-            navigationItem.rightBarButtonItem = customVC?.navigationItem.rightBarButtonItem
+            if let navBarTitleFont = UINavigationBar.appearance().titleTextAttributes?[.font] as? UIFont {
+                customRightButton?.setTitleTextAttributes([NSAttributedString.Key.font: navBarTitleFont], for: .normal)
+            }
+            navigationItem.rightBarButtonItem = customRightButton
         }
     }
     
