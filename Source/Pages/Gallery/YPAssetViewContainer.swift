@@ -113,7 +113,7 @@ class YPAssetViewContainer: UIView {
         if let zoomableView = zoomableView {
             let z = zoomableView.zoomScale
             shouldCropToSquare = (z >= 1 && z < zoomableView.squaredZoomScale)
-            squareCropButton.setImage(z >= 1 ? YPConfig.icons.shrinkIcon : YPConfig.icons.cropIcon, for: .normal)
+            squareCropButton.setImage(z <= 1 ? YPConfig.icons.shrinkIcon : YPConfig.icons.cropIcon, for: .normal)
         }
         zoomableView?.fitImage(shouldCropToSquare, animated: true)
     }
@@ -168,7 +168,7 @@ extension YPAssetViewContainer: YPAssetZoomableViewDelegate {
             zoomableView.videoView.playImageView.centerInContainer()
         }
         
-        squareCropButton.setImage(zoomableView.zoomScale >= 1 ? YPConfig.icons.shrinkIcon : YPConfig.icons.cropIcon, for: .normal)
+        squareCropButton.setImage(zoomableView.zoomScale <= 1 ? YPConfig.icons.shrinkIcon : YPConfig.icons.cropIcon, for: .normal)
     }
     
     public func ypAssetZoomableViewScrollViewDidZoom() {
