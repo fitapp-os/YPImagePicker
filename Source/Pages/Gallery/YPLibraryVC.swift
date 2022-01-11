@@ -517,8 +517,7 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
                     })
                 case .image:
                     self.fetchImageAndCrop(for: asset) { image, exifMeta in
-                        let rotationAngleRad = Float(self.v.assetViewContainer.currentRotationAngle) * .pi / 180
-                        guard let rotatedImage = image.rotate(radians: rotationAngleRad) else { return }
+                        guard let rotatedImage = image.rotate(radians: Float(self.v.assetViewContainer.currentRotationAngle)) else { return }
                         DispatchQueue.main.async {
                             self.delegate?.libraryViewFinishedLoading()
                             let photo = YPMediaPhoto(image: rotatedImage.resizedImageIfNeeded(),
