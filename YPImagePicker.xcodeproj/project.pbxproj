@@ -68,7 +68,6 @@
 		99D1DC2B1F9788930047F0E0 /* YPImagePickerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D1DC2A1F9788930047F0E0 /* YPImagePickerConfiguration.swift */; };
 		AA69BCF222E601D100FBB925 /* YPDeviceOrientationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA69BCF122E601D100FBB925 /* YPDeviceOrientationHelper.swift */; };
 		E0357049278DCDD000C8468E /* UiImage+Rotate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0357048278DCDD000C8468E /* UiImage+Rotate.swift */; };
-		E0C47A272785D7AC0026E438 /* Stevia in Frameworks */ = {isa = PBXBuildFile; productRef = E0C47A262785D7AC0026E438 /* Stevia */; };
 		E0C47A2A2785D8850026E438 /* PryntTrimmerView in Frameworks */ = {isa = PBXBuildFile; productRef = E0C47A292785D8850026E438 /* PryntTrimmerView */; };
 		EB05F6E7214A7191002040AA /* YPVideoProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB05F6E6214A7191002040AA /* YPVideoProcessor.swift */; };
 		EB1AB2EA20AC1DED00BFA79F /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1AB2E920AC1DED00BFA79F /* CGFloat+Extensions.swift */; };
@@ -212,7 +211,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0C47A2A2785D8850026E438 /* PryntTrimmerView in Frameworks */,
-				E0C47A272785D7AC0026E438 /* Stevia in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,7 +496,6 @@
 			);
 			name = YPImagePicker;
 			packageProductDependencies = (
-				E0C47A262785D7AC0026E438 /* Stevia */,
 				E0C47A292785D8850026E438 /* PryntTrimmerView */,
 			);
 			productName = Fusuma;
@@ -548,7 +545,6 @@
 			);
 			mainGroup = 52412A891CA6114A0073C4BE;
 			packageReferences = (
-				E0C47A252785D7AC0026E438 /* XCRemoteSwiftPackageReference "Stevia" */,
 				E0C47A282785D8850026E438 /* XCRemoteSwiftPackageReference "PryntTrimmerView" */,
 			);
 			productRefGroup = 52412A941CA6114A0073C4BE /* Products */;
@@ -857,9 +853,9 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 5.0.0;
+				MARKETING_VERSION = 5.2.2;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.markusfriedlbp.YPImagePicker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fitapp.YPImagePicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -895,9 +891,9 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 5.0.0;
+				MARKETING_VERSION = 5.2.2;
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.markusfriedlbp.YPImagePicker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fitapp.YPImagePicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -931,14 +927,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E0C47A252785D7AC0026E438 /* XCRemoteSwiftPackageReference "Stevia" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/MarkusFriedlBP/Stevia.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.2.0;
-			};
-		};
 		E0C47A282785D8850026E438 /* XCRemoteSwiftPackageReference "PryntTrimmerView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/HHK1/PryntTrimmerView.git";
@@ -950,11 +938,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E0C47A262785D7AC0026E438 /* Stevia */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E0C47A252785D7AC0026E438 /* XCRemoteSwiftPackageReference "Stevia" */;
-			productName = Stevia;
-		};
 		E0C47A292785D8850026E438 /* PryntTrimmerView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E0C47A282785D8850026E438 /* XCRemoteSwiftPackageReference "PryntTrimmerView" */;

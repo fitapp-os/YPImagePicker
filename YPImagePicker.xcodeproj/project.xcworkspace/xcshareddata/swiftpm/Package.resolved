@@ -9,15 +9,6 @@
           "revision": "ac1b60a22c7e6a6514de7a66d2f3d5b537c956d5",
           "version": "4.0.2"
         }
-      },
-      {
-        "package": "Stevia",
-        "repositoryURL": "https://github.com/MarkusFriedlBP/Stevia.git",
-        "state": {
-          "branch": null,
-          "revision": "d41bb01c5dca77e491d150655d249f3d96827c62",
-          "version": "5.2.1"
-        }
       }
     ]
   },
