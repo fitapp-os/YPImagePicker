@@ -141,22 +141,22 @@ public struct YPImagePickerConfiguration {
     public var trimmerMinDuration: Double { 3.0 }
     
     @available(iOS, obsoleted: 3.0.0, renamed: "library.onlySquare")
-    public var onlySquareImagesFromLibrary { false }
+    public var onlySquareImagesFromLibrary: Bool { false }
     
     @available(iOS, obsoleted: 3.0.0, renamed: "library.onlySquare")
-    public var onlySquareFromLibrary { false }
+    public var onlySquareFromLibrary: Bool { false }
     
     @available(iOS, obsoleted: 3.0.0, renamed: "targetImageSize")
-    public var libraryTargetImageSize { YPImageSize.original }
+    public var libraryTargetImageSize: YPImageSize { YPImageSize.original }
     
     @available(iOS, obsoleted: 3.0.0, renamed: "library.mediaType")
-    public var showsVideoInLibrary { false }
+    public var showsVideoInLibrary: Bool { false }
     
     @available(iOS, obsoleted: 3.0.0, renamed: "library.mediaType")
-    public var libraryMediaType { YPlibraryMediaType.photo }
+    public var libraryMediaType: YPlibraryMediaType { YPlibraryMediaType.photo }
     
     @available(iOS, obsoleted: 3.0.0, renamed: "library.maxNumberOfItems")
-    public var maxNumberOfItems { 1 }
+    public var maxNumberOfItems: Int { 1 }
     
 }
 
