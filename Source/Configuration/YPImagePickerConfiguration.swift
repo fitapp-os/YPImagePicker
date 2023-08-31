@@ -67,7 +67,7 @@ public struct YPImagePickerConfiguration {
     /// Defines which screens are shown at launch, and their order.
     /// Default value is `[.library, .photo]`
     public var screens: [YPPickerScreen] = [.library, .photo]
-
+    
     /// Adds a Crop step in the photo taking process, after filters.  Defaults to .none
     public var showsCrop: YPCropType = .none
     
@@ -85,7 +85,7 @@ public struct YPImagePickerConfiguration {
     
     /// Defines if the bottom bar should be hidden when showing the picker. Default is false.
     public var hidesBottomBar = false
-
+    
     /// Defines the preferredStatusBarAppearance
     public var preferredStatusBarStyle = UIStatusBarStyle.default
     
@@ -117,48 +117,48 @@ public struct YPImagePickerConfiguration {
         YPFilter(name: "Tone", coreImageFilterName: "CILinearToSRGBToneCurve"),
         YPFilter(name: "Linear", coreImageFilterName: "CISRGBToneCurveToLinear"),
         YPFilter(name: "Sepia", coreImageFilterName: "CISepiaTone"),
-        ]
+    ]
     
     /// Migration
     
     @available(iOS, obsoleted: 3.0.0, renamed: "video.compression")
-    public var videoCompression: String = AVAssetExportPresetHighestQuality
+    public var videoCompression: String { AVAssetExportPresetHighestQuality }
     
     @available(iOS, obsoleted: 3.0.0, renamed: "video.fileType")
-    public var videoExtension: AVFileType = .mov
+    public var videoExtension: AVFileType { .mov }
     
     @available(iOS, obsoleted: 3.0.0, renamed: "video.recordingTimeLimit")
-    public var videoRecordingTimeLimit: TimeInterval = 60.0
+    public var videoRecordingTimeLimit: TimeInterval { 60.0 }
     
     @available(iOS, obsoleted: 3.0.0, renamed: "video.libraryTimeLimit")
-    public var videoFromLibraryTimeLimit: TimeInterval = 60.0
+    public var videoFromLibraryTimeLimit: TimeInterval { 60.0 }
     
     @available(iOS, obsoleted: 3.0.0, renamed: "video.minimumTimeLimit")
-    public var videoMinimumTimeLimit: TimeInterval = 3.0
+    public var videoMinimumTimeLimit: TimeInterval { 3.0 }
     
     @available(iOS, obsoleted: 3.0.0, renamed: "video.trimmerMaxDuration")
-    public var trimmerMaxDuration: Double = 60.0
-
+    public var trimmerMaxDuration: Double { 60.0 }
+    
     @available(iOS, obsoleted: 3.0.0, renamed: "video.trimmerMinDuration")
-    public var trimmerMinDuration: Double = 3.0
+    public var trimmerMinDuration: Double { 3.0 }
     
     @available(iOS, obsoleted: 3.0.0, renamed: "library.onlySquare")
-    public var onlySquareImagesFromLibrary = false
+    public var onlySquareImagesFromLibrary { false }
     
     @available(iOS, obsoleted: 3.0.0, renamed: "library.onlySquare")
-    public var onlySquareFromLibrary = false
+    public var onlySquareFromLibrary { false }
     
     @available(iOS, obsoleted: 3.0.0, renamed: "targetImageSize")
-    public var libraryTargetImageSize = YPImageSize.original
+    public var libraryTargetImageSize { YPImageSize.original }
     
     @available(iOS, obsoleted: 3.0.0, renamed: "library.mediaType")
-    public var showsVideoInLibrary = false
+    public var showsVideoInLibrary { false }
     
     @available(iOS, obsoleted: 3.0.0, renamed: "library.mediaType")
-    public var libraryMediaType = YPlibraryMediaType.photo
+    public var libraryMediaType { YPlibraryMediaType.photo }
     
     @available(iOS, obsoleted: 3.0.0, renamed: "library.maxNumberOfItems")
-    public var maxNumberOfItems = 1
+    public var maxNumberOfItems { 1 }
     
 }
 
